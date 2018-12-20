@@ -7,12 +7,12 @@
 		<?php echo link_tag('resources/css/style.css')?>
 		<?php echo link_tag('resources/font/awesome/css/all.css')?>
 	</head>
-	<body class="bg-primary container-fluid">
+	<body class="bg-light container-fluid">
 	
 	<!--GENERAL BODY CONTAINER-->
-	<div class="container bg-primary" style="margin-top: 100px;">
+	<div class="container bg-light" style="margin-top: 100px;">
 	
-		<div class="navbar fixed-top navbar-light bg-primary">
+		<div class="navbar fixed-top navbar-light bg-dark">
 			<a class="navbar-brand">
 				<img class="logo" src="<?php echo site_url()?>resources/images/logo.png" />
 				&nbsp; &nbsp;<?php echo $project_name?>
