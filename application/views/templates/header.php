@@ -13,9 +13,9 @@
 	<div class="container bg-light" style="margin-top: 100px;">
 	
 		<div class="navbar fixed-top navbar-light bg-dark">
-			<a class="navbar-brand">
+			<a class="navbar-brand text-center">
 				<img class="logo" src="<?php echo site_url()?>resources/images/logo.png" />
 				&nbsp; &nbsp;<?php echo $project_name?>
-					<h6 class="card-subtitle mb-2 text-muted fixed-bottom">Learn PHP</h6>
+					<h6 class="card-subtitle mb-2 text-muted text-right">Learn PHP</h6>
 			</a>
 		</div>
