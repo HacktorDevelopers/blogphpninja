@@ -1,6 +1,6 @@
 <div class="card text-center">
 	<div class="card-header">
-		Featured
+		Latest Featured
 	</div>
 <div class="card-body">
 	<div class="card bg-dark text-white">
@@ -12,7 +12,7 @@
 		</div>
 	</div>
 	<div class="card-footer text-muted">
-    		2 days ago
+    		5 min ago <a href="#">read article</a>
 	</div>
 </div>
 </div>
@@ -25,11 +25,14 @@
 		<img class="card-img-top" src="<?php echo site_url()."resources/images/logo.png"?>" alt="Card image cap">
 		<div class="card-body">
 			<h5 class="card-title"><?php echo $post->title ?></h5>
+			<button type="button" class="btn btn-primary">
+				<span class="badge badge-light"><?php echo $post->cat?></span>
+			</button>
 			<h6 class="card-subtitle mb-2 text-muted">posted by <?php echo $post->author ?></h6>
 			<p class="card-text"><?php echo character_limiter($post->content,10)?></p>
 			<a href="<?php echo site_url()."post/".$post->post_id?>" class="card-link">Read full article</a>
 			<div class="card-footer bg-transparent border-success">
-				<a class="card-link"><span class="fa fa-comment text-danger"></span><?php echo nbs(4).$this->post->getNumberOfComment($post->post_id)?></a>
+				<a class="card-link"><span class="fa fa-comment text-primary"></span><?php echo nbs(4).$this->post->getNumberOfComment($post->post_id)?></a>
 			</div>
 		</div>
 	</div>

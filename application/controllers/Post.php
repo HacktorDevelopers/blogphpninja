@@ -36,6 +36,18 @@
 			
 		}
 		
+		
+		public function searchLikePost(){
+			
+			$searchResult = $this->post->searchLikePost($this->input->post('keyword'))->result();
+			foreach($searchResult as $res):
+				//var_dump($res->title);
+				echo "<li><a href='".site_url()."post/".$res->post_id."'>".$res->title."</a></li>";
+			
+			endforeach;
+			
+		}
+		
 	}
 
 ?>

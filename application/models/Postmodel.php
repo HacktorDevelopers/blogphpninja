@@ -34,6 +34,16 @@
 			
 		}
 		
+		
+		public function searchLikePost($keyword){
+			
+			$this->db->select("*");
+			$this->db->from("blog");
+			$this->db->like('title', $keyword, 'both');
+			return $this->db->get();
+			
+			
+		}
 	}
 
 
