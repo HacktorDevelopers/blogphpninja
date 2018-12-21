@@ -8,7 +8,11 @@
 			parent::__construct();
 
        		  //get your data
-	   	      $global_data = array('project_name'=>'PHP Ninja', 'year'=>date('Y'));
+	   	      $global_data = array(
+				'project_name'=>'PHP Ninja', 
+				'year'=>date('Y'),
+				'post_cats' => array('title', 'cat', 'author')
+			);
 
 		         //Send the data into the current view
 		         //http://ellislab.com/codeigniter/user-guide/libraries/loader.html

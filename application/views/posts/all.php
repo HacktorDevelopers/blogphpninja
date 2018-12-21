@@ -25,9 +25,9 @@
 		<img class="card-img-top" src="<?php echo site_url()."resources/images/logo.png"?>" alt="Card image cap">
 		<div class="card-body">
 			<h5 class="card-title"><?php echo $post->title ?></h5>
-			<button type="button" class="btn btn-primary">
-				<span class="badge badge-light"><?php echo $post->cat?></span>
-			</button>
+			<div style="margin-bottom: 10px;">
+				<span class="badge badge-primary"><?php echo $cat = $post->cat? $post->cat:"UNCATEGORIZED" ?></span>
+			</div>
 			<h6 class="card-subtitle mb-2 text-muted">posted by <?php echo $post->author ?></h6>
 			<p class="card-text"><?php echo character_limiter($post->content,10)?></p>
 			<a href="<?php echo site_url()."post/".$post->post_id?>" class="card-link">Read full article</a>

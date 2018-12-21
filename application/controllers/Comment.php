@@ -10,7 +10,7 @@
 		
 		public function regUserComment(){
 			
-			if (  isset($this->session->user_online) ):
+			if ( ! isset($this->session->user_online) ):
 				echo "You must be logged in before you comment";
 			else:
 				$comment_detail = array(

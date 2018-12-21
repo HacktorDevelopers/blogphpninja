@@ -38,13 +38,13 @@
 		
 		
 		public function searchLikePost(){
-			
-			$searchResult = $this->post->searchLikePost($this->input->post('keyword'));
+			echo $_POST['searchWith'];
+			$searchResult = $this->post->searchLikePost($this->input->post('keyword'), $this->input->post('searchWith'));
 			
 			if ( count($searchResult->result()) == 0):
 				echo "Total match <span class='badge badge-danger'>".count($searchResult->result())."</span>";
 				echo "<div class='alert alert-info'>";
-					echo "No Post found with title <span class='text-danger'>".$this->input->post('keyword')."</span>";
+					echo "No Post found with ".$this->input->post('searchWith')." <span class='text-danger'>".$this->input->post('keyword')."</span>";
 				echo "</div>";
 			else:
 				echo "Total match <span class='badge badge-success'>".count($searchResult->result())."</span>";

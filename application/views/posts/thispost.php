@@ -44,9 +44,9 @@
 		$todaysecond = date('s');
 		
 		
-		var_dump($date);
-		echo $cday = $todaydate-$date[2];
-		$cday = $cday/$hour." hours";
+		//var_dump($date);
+		$cday = $todayday-$date[2];
+		/*$cday = $cday/$hour." hours";
 		if ($cday < 0){
 			$cday = 24 - $cday;
 			$cday .= " hours";
@@ -54,7 +54,7 @@
 			$cday .= " day ";
 		}else{
 			$cday .= " days";
-		}
+		}*/
 ?>
 <div class="list-group-item list-group-item-action flex-column align-items-start">
     <div class="d-flex w-100 justify-content-between">

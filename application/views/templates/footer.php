@@ -9,6 +9,11 @@
 		<a class="nav-item nav-link fa fa-user fa-2x" href="<?php echo base_url()?>p/about"></a>
 		<a class="nav-item nav-link fa fa-list fa-2x" href="<?php echo base_url()?>p/contact"></a>
 		<a class="nav-item nav-link fa fa-search fa-2x" data-toggle="modal" data-target="#searchModal" href=""></a>
+		<?php if ( ! isset($this->session->user_online) ):?>
+			<a class="nav-item nav-link fa fa-lock fa-2x" data-toggle="modal" data-target="#searchModal" href=""></a>
+		<?php else:?>
+			<a class="nav-item nav-link fa fa-profile fa-2x" data-toggle="modal" data-target="#searchModal" href=""></a>
+		<?php endif;?>
 	</nav>
 	
 	
@@ -28,6 +33,13 @@
         </button>
       </div>
       <div class="modal-body">
+	 <p>Search by:  
+		<select name="searchBy" class="form-control">
+			<?php foreach($post_cats as $post_cat): ?>
+				<?php echo "<option value='".$post_cat."'>$post_cat</option>"; ?>
+			<?php endforeach; ?>
+		</select>
+	</p>
         <input type="search" name="keyword" class="form-control" placeholder="Start typing..." autofocus/>
 	 <ul id="searchResult">
 		<li></li>

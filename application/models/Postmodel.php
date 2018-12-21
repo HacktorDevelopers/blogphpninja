@@ -35,11 +35,11 @@
 		}
 		
 		
-		public function searchLikePost($keyword){
+		public function searchLikePost($keyword, $searchWith){
 			
 			$this->db->select("*");
 			$this->db->from("blog");
-			$this->db->like('title', $keyword, 'both');
+			$this->db->like($searchWith, $keyword, 'both');
 			return $this->db->get();
 			
 			

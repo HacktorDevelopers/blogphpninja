@@ -18,14 +18,17 @@ $(document).ready(function(){
 	
 	$("input[name=keyword]").keyup(function(){
 		var userkeyword = $("input[name=keyword]").val();
+		var searchBy = $("select[name=searchBy]").val();
+		//alert(searchBy);
 		if( userkeyword.length != 0){
 		$("#searchResult").load(
 			"http://localhost:8002/post/searchLikePost", 
 				{
-					keyword:userkeyword
+					keyword : userkeyword,
+					searchWith : searchBy
 				},
 			function(status){
-				
+				//alert(status);
 			});
 		}
 	});
