@@ -39,12 +39,20 @@
 		
 		public function searchLikePost(){
 			
-			$searchResult = $this->post->searchLikePost($this->input->post('keyword'))->result();
-			foreach($searchResult as $res):
-				//var_dump($res->title);
-				echo "<li><a href='".site_url()."post/".$res->post_id."'>".$res->title."</a></li>";
+			$searchResult = $this->post->searchLikePost($this->input->post('keyword'));
 			
-			endforeach;
+			if ( count($searchResult->result()) == 0):
+				echo "Total match <span class='badge badge-danger'>".count($searchResult->result())."</span>";
+				echo "<div class='alert alert-info'>";
+					echo "No Post found with title <span class='text-danger'>".$this->input->post('keyword')."</span>";
+				echo "</div>";
+			else:
+				echo "Total match <span class='badge badge-success'>".count($searchResult->result())."</span>";
+				foreach($searchResult->result() as $res):
+					//var_dump($res->title);
+					echo "<div class='s bg-dark text-dark col'><a href='".site_url()."post/".$res->post_id."'>".$res->title."</a></div>";
+				endforeach;
+			endif;
 			
 		}
 		
