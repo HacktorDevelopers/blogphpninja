@@ -10,9 +10,9 @@
 		<a class="nav-item nav-link fa fa-list fa-2x" href="<?php echo base_url()?>p/contact"></a>
 		<a class="nav-item nav-link fa fa-search fa-2x" data-toggle="modal" data-target="#searchModal" href=""></a>
 		<?php if ( ! isset($this->session->user_online) ):?>
-			<a class="nav-item nav-link fa fa-lock fa-2x" data-toggle="modal" data-target="#searchModal" href=""></a>
+			<a class="nav-item nav-link fa fa-lock fa-2x" href="<?php echo site_url()?>users/login"></a>
 		<?php else:?>
-			<a class="nav-item nav-link fa fa-profile fa-2x" data-toggle="modal" data-target="#searchModal" href=""></a>
+			<a class="nav-item nav-link fa fa-profile fa-2x" href=""></a>
 		<?php endif;?>
 	</nav>
 	

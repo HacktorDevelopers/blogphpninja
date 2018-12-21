@@ -11,7 +11,8 @@
 	   	      $global_data = array(
 				'project_name'=>'PHP Ninja', 
 				'year'=>date('Y'),
-				'post_cats' => array('title', 'cat', 'author')
+				'post_cats' => array('title', 'cat', 'author'),
+				'login_credentials' => array('email', 'password'),
 			);
 
 		         //Send the data into the current view

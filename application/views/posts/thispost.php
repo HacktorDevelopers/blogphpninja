@@ -11,7 +11,7 @@
 </div>
 <div class="container">
 <div id="comments">
-<p class="alert fixed-top" style="display:none" id="comment_status"></p>
+
 <div class="list-group">
 <?php
 

@@ -57,4 +57,3 @@ $route['p/(:any)'] = 'welcome/load_page/$1';
 $route['post/all'] = 'post/allposts';
 $route['post/(:num)'] = 'post/thispost/$1';
 
-

@@ -8,7 +8,6 @@
 		<?php echo link_tag('resources/font/awesome/css/all.css')?>
 	</head>
 	<body class="bg-light container-fluid">
-	
 	<!--GENERAL BODY CONTAINER-->
 	<div class="container bg-light" style="margin-top: 100px;">
 	
@@ -19,3 +18,4 @@
 					<h6 class="card-subtitle mb-2 text-muted text-right">Learn PHP</h6>
 			</a>
 		</div>
+		<p class="alert fixed-top" style="display:none; margin-top:95px;" id="msg"></p>

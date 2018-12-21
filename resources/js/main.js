@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	
 	var links = $("a");
-	var comment_status = $("#comment_status");
+	var msg = $("#msg");
 	links.click(function(e){
 		e.preventDefault();
 		for(var i = 0; i < links.length; i++){
@@ -38,11 +38,11 @@ $(document).ready(function(){
 		var comment = $("#commentbox").val();
 		var post_id = $("input[name=post_id]").val();
 		if ( comment.length == 0){
-			comment_status.removeClass('alert-info');
-			comment_status.addClass('alert-danger');
-			comment_status.show();
-			comment_status.text("Empty comment not allowed");
-			comment_status.delay(4000).hide(0);
+			msg.removeClass('alert-info');
+			msg.addClass('alert-danger');
+			msg.show();
+			msg.text("Empty comment not allowed");
+			msg.delay(4000).hide(0);
 		}else{
 			$.ajax({
 				url: "http://localhost:8002/comment/regUserComment",
@@ -52,11 +52,11 @@ $(document).ready(function(){
 					postid : post_id
 				},
 				success: function(status){
-					comment_status.removeClass('alert-danger');
-					comment_status.addClass('alert-success');
-					comment_status.show();
-					comment_status.text(status);
-					comment_status.delay(4000).hide(0);
+					msg.removeClass('alert-danger');
+					msg.addClass('alert-info');
+					msg.show();
+					msg.text(status);
+					msg.delay(4000).hide(0);
 					setTimeout(function(){
 						location.reload();
 					}, 5000); 
