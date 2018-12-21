@@ -1,11 +1,11 @@
-	<div class="bg-dark text-center fixed-bottom" style="margin-bottom: 40px; margin-top:40px;">
-		lorem ipsum &copy; <?php echo $year ?> PHP Ninja
+	<div class="bg-dark text-center" style="margin-bottom: 50px; margin-top:0px;">
+		All Right Reserved &copy; <?php echo $year ?> PHP Ninja
 	</div>
 	
 	
 	
 	<nav class="nav nav-pills bg-dark nav-justified fixed-bottom">
-		<a class="nav-item nav-link active fa fa-home fa-2x" href="<?php echo site_url()?>"></a>
+		<a class="nav-item nav-link fa fa-home fa-2x" href="<?php echo site_url()?>"></a>
 		<a class="nav-item nav-link fa fa-user fa-2x" href="<?php echo base_url()?>p/about"></a>
 		<a class="nav-item nav-link fa fa-list fa-2x" href="<?php echo base_url()?>p/contact"></a>
 		<a class="nav-item nav-link fa fa-search fa-2x" data-toggle="modal" data-target="#searchModal" href=""></a>
