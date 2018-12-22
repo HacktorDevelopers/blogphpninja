@@ -12,10 +12,12 @@
 	<div class="container bg-light" style="margin-top: 100px;">
 	
 		<div class="navbar fixed-top navbar-light bg-dark">
-			<a class="navbar-brand text-center">
+			
+			<a class="navbar-brand">
 				<img class="logo" src="<?php echo site_url()?>resources/images/logo.png" />
 				&nbsp; &nbsp;<?php echo $project_name?>
 					<h6 class="card-subtitle mb-2 text-muted text-right">Learn PHP</h6>
 			</a>
+			<p class="text-left text-success"><?php echo $user = $this->session->user_data? "Online" : "offline"?></p>
 		</div>
 		<p class="alert fixed-top" style="display:none; margin-top:95px;" id="msg"></p>

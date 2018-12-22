@@ -71,7 +71,7 @@
 </div>
 </div>
 
-<?php if ( ! isset($this->session->user_online) ):?>
+<?php if ( isset($this->session->user_data) ):?>
 	<div class="form-group">
 		<label for="comment">Leave a comment</label>
 		<input type="hidden" name="post_id" value="<?php echo $post->post_id?>"/>

@@ -61,17 +61,19 @@ $(document).ready(function(){
 	
 	$("input[name=login_btn]").click(function(e){
 		e.preventDefault();
-		//alert('Login Button Clicked');
+		//alert($("input[name=password]").val());
+		var useremail = $("input[name=email]").val();
+		var userpass = $("input[name=password]").val();
 		$.ajax({
 			url : "http://localhost:8002/users/loginuser",
 			method : 'POST',
 			data : {
-				email : $("input[name=email]").val(),
-				password : $("input[name=password]").val()
+				email : useremail,
+				password : userpass
 			},
-			processData : false,
-			success : function(status){
-				toast(status, msg, 'danger', 'info', 4000);
+			success : function(data){
+				//alert(status);
+				toast(data, msg, 'danger', 'info', 4000);
 			}
 		});
 	});
