@@ -38,11 +38,8 @@ $(document).ready(function(){
 		var comment = $("#commentbox").val();
 		var post_id = $("input[name=post_id]").val();
 		if ( comment.length == 0){
-			msg.removeClass('alert-info');
-			msg.addClass('alert-danger');
-			msg.show();
-			msg.text("Empty comment not allowed");
-			msg.delay(4000).hide(0);
+			var msgtext = "Empty comment not allowed";
+			toast(msgtext, msg, 'info', 'danger', 4000);
 		}else{
 			$.ajax({
 				url: "http://localhost:8002/comment/regUserComment",
@@ -52,11 +49,7 @@ $(document).ready(function(){
 					postid : post_id
 				},
 				success: function(status){
-					msg.removeClass('alert-danger');
-					msg.addClass('alert-info');
-					msg.show();
-					msg.text(status);
-					msg.delay(4000).hide(0);
+					toast(status, msg, 'danger', 'info', 4000);
 					setTimeout(function(){
 						location.reload();
 					}, 5000); 
@@ -66,4 +59,30 @@ $(document).ready(function(){
 		
 	});
 	
+	$("input[name=login_btn]").click(function(e){
+		e.preventDefault();
+		//alert('Login Button Clicked');
+		$.ajax({
+			url : "http://localhost:8002/users/loginuser",
+			method : 'POST',
+			data : {
+				email : $("input[name=email]").val(),
+				password : $("input[name=password]").val()
+			},
+			processData : false,
+			success : function(status){
+				toast(status, msg, 'danger', 'info', 4000);
+			}
+		});
+	});
+	
+	
+	function toast(message, eltotoast, rtype, type, delay){
+		//delay = 4000;
+		eltotoast.removeClass('alert-'+rtype);
+		eltotoast.addClass('alert-'+type);
+		eltotoast.show();
+		eltotoast.html(message);
+		eltotoast.delay(delay).hide(0);
+	}
 });

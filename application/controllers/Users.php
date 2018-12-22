@@ -5,8 +5,9 @@
 		
 		public function __construct(){
 			parent::__construct();
+			$this->load->library('form_validation');
 		}
-		
+			
 		public function index(){
 			
 			$this->load->view('templates/header');
@@ -14,16 +15,22 @@
 			$this->load->view('templates/footer');
 			
 		}
-		
+	
 		public function login(){
-			if ( count($_POST) == 0):
-				$this->load->view('templates/header');
-				$this->load->view('users/login');
-				$this->load->view('templates/footer');
-			else:
-				echo "Post request sent";
-			endif;
+			$this->load->view('templates/header');
+			$this->load->view('users/login');
+			$this->load->view('templates/footer');
+		}
+		
+		public function loginuser(){
 			
+			$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
+			$this->form_validation->set_rules('password', 'Password', 'required|trim');
+			if ( $this->form_validation->run() == FALSE){
+				echo validation_errors();
+			}else{
+				
+			}
 		}
 		
 		public function register(){
