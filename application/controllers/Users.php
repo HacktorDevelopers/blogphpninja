@@ -18,12 +18,20 @@
 		}
 	
 		public function login(){
-			$this->load->view('templates/header');
-			$this->load->view('users/login');
-			$this->load->view('templates/footer');
+			if ( ! isset($this->session->user_data) ):
+				$this->load->view('templates/header');
+				$this->load->view('users/login');
+				$this->load->view('templates/footer');
+			else:
+				redirect('users/index');
+			endif;
 		}
 		
 		public function loginuser(){
+			if ( isset($this->session->user_data) ):
+				echo "Please Logout Before Logging In";
+			else:
+			
 			//var_dump($this->input->post('password'));
 			$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
 			$this->form_validation->set_rules('password', 'Password', 'required|trim');
@@ -54,6 +62,7 @@
 					endif;
 				endif;
 			}
+			endif;
 		}
 		
 		public function register(){
@@ -64,6 +73,12 @@
 			else:
 				var_dump($_POST);
 			endif;
+			
+		}
+		
+		public function user_notification(){
+			
+			
 			
 		}
 		

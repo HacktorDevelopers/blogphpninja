@@ -1,4 +1,4 @@
-	<div class="bg-dark text-center" style="margin-bottom: 50px; margin-top:0px;">
+	<div class="bg-dark text-center fixed-bottom" style="margin-bottom: 50px; margin-top:0px;">
 		All Right Reserved &copy; <?php echo $year ?> PHP Ninja
 	</div>
 	
@@ -13,6 +13,7 @@
 			<a class="nav-item nav-link fa fa-sign-in-alt fa-2x" href="<?php echo site_url()?>users/login"></a>
 		<?php else:?>
 			<a class="nav-item nav-link fa fa-user fa-2x" href="<?php echo site_url()?>users/index"></a>
+			<a class="nav-item nav-link fa fa-bell fa-2x" href="<?php echo site_url()?>users/notification"></a><span class="badge badge-primary">5</span>
 			<a class="nav-item nav-link fa fa-sign-out-alt fa-2x" href="<?php echo site_url()?>users/logout"></a>
 		<?php endif;?>
 	</nav>

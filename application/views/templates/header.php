@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
-		<title><?php $title?></title>
+		<title><?php echo "PHP Ninja ".$title ?></title>
 		<?php echo link_tag('resources/css/bootstrap/bootstrap.min.css')?>
 		<?php echo link_tag('resources/css/style.css')?>
 		<?php echo link_tag('resources/font/awesome/css/all.css')?>
@@ -18,6 +18,8 @@
 				&nbsp; &nbsp;<?php echo $project_name?>
 					<h6 class="card-subtitle mb-2 text-muted text-right">Learn PHP</h6>
 			</a>
-			<p class="text-left text-success"><?php echo $user = $this->session->user_data? "Online" : "offline"?></p>
+			<p class="text-left text-<?php echo $user = $this->session->user_data? "success" : "danger"?>">
+				<?php echo $user = $this->session->user_data? "Online" : "Guest Mode"?>
+			</p>
 		</div>
 		<p class="alert fixed-top" style="display:none; margin-top:95px;" id="msg"></p>

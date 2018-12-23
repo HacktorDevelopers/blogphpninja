@@ -11,7 +11,7 @@
 		public function allposts(){
 			
 			$data['posts'] = $this->post->getPosts();
-			
+			$data['title'] = " Blog post";
 			$this->load->view('templates/header', $data);
 			$this->load->view('posts/all', $data);
 			$this->load->view('templates/footer.php', $data);
@@ -25,6 +25,7 @@
 			
 			$data['thispost'] = $this->post->getPost($id);
 			$data['page_header'] = $data['thispost']->row()->title;
+			$data['title'] = $data['thispost']->row()->title;
 			$data['NOC'] = $this->post->getNumberOfComment($data['thispost']->row()->post_id);
 			$data['PCD'] = $this->post->getPostComments($data['thispost']->row()->post_id);
 			
@@ -38,7 +39,7 @@
 		
 		
 		public function searchLikePost(){
-			echo $_POST['searchWith'];
+			//echo $_POST['searchWith'];
 			$searchResult = $this->post->searchLikePost($this->input->post('keyword'), $this->input->post('searchWith'));
 			
 			if ( count($searchResult->result()) == 0):
@@ -50,7 +51,7 @@
 				echo "Total match <span class='badge badge-success'>".count($searchResult->result())."</span>";
 				foreach($searchResult->result() as $res):
 					//var_dump($res->title);
-					echo "<div class='s bg-dark text-dark col'><a href='".site_url()."post/".$res->post_id."'>".$res->title."</a></div>";
+					echo "<div class='s bg-dark text-dark col'><a href='".site_url()."post/".$res->post_id."'>".highlight_phrase($res->title,$this->input->post('keyword'), '<span class="selected">', '</span>')."</a></div>";
 				endforeach;
 			endif;
 			

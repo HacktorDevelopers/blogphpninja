@@ -16,7 +16,7 @@
 				$comment_detail = array(
 					'post_id' => $_POST['postid'],
 					'comment' => $_POST['comment_value'],
-					'commenter' => 'Toykam'
+					'commenter' => $this->session->user_data->first_name
 				);
 				
 				if ($this->comment->regUserComment($comment_detail) ):

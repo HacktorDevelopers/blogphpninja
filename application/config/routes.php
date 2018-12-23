@@ -56,3 +56,5 @@ $route['translate_uri_dashes'] = FALSE;
 $route['p/(:any)'] = 'welcome/load_page/$1';
 $route['post/all'] = 'post/allposts';
 $route['post/(:num)'] = 'post/thispost/$1';
+
+$route['users/notification'] = 'users/user_notification';

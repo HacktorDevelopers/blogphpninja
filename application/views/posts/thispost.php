@@ -22,10 +22,22 @@
 		//echo br();
 		$day = 24 * $hour;
 		//echo br();
-
+		$user = "";
+		$class =  "";
+			if ( isset($this->session->user_data) ):
+				$user = $this->session->user_data->email;
+				$class = 'success';
+			else:
+				$user = "Guest";
+				$class = 'danger';
+			endif;
+			echo "<div class='alert alert-".$class."'>";
+				echo "You are logged in as ".$user.br();
+			echo "</div>";
 
 		if ($NOC > 0){
 			echo "Comments: ".$NOC.br();
+			
 		}else{
 			echo "No Comment: ";
 		}
