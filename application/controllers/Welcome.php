@@ -32,7 +32,7 @@ class Welcome extends MY_Controller {
 	
 	public function load_page($page){
 		
-		$data['title'] = "Blog9ja ".$page;
+		$data['title'] = "PHP Ninja ".$page;
 		$data['page_header'] = $page;
 		
 		$this->load->view('templates/header', $data);

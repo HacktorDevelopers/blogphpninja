@@ -79,6 +79,39 @@ $(document).ready(function(){
 	});
 	
 	
+	$("input[name=register]").click(function(e){
+		e.preventDefault();
+		//alert($("input[name=password]").val());
+		var userfirst_name = $("input[name=first_name]").val();
+		var userlast_name = $("input[name=last_name]").val();
+		var useremail = $("input[name=email]").val();
+		var usergender = $("select[name=gender]").val();
+		var userpassword = $("input[name=password]").val();
+		var userconfirm_password = $("input[name=confirm_password]").val();
+		var userrole = $("input[name=role]").val();
+		var useruser_id = $("input[name=user_id]").val();
+		//alert(usergender);
+		$.ajax({
+			url : "http://localhost:8002/users/register",
+			method : "POST",
+			data : {
+				first_name : userfirst_name,
+				last_name : userlast_name,
+				email : useremail,
+				gender : usergender,
+				password : userpassword,
+				confirm_password : userconfirm_password,
+				role : userrole,
+				user_id : useruser_id
+			} ,
+			success : function(data){
+				alert(data);
+				//toast(data, msg, 'info', 'info', 4000);
+			}
+		});
+	});
+	
+	
 	function toast(message, eltotoast, rtype, type, delay){
 		//delay = 4000;
 		eltotoast.removeClass('alert-'+rtype);

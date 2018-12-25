@@ -1,4 +1,4 @@
-<div class="container row">
+<div class="container">
 
 	<form method="POST" class="form col" action="<?php echo site_url()?>users/login">
 		<h3>Login Here</h3>

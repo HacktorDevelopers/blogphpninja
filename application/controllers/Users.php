@@ -71,7 +71,28 @@
 				$this->load->view('users/register');
 				$this->load->view('templates/footer');
 			else:
-				var_dump($_POST);
+				//var_dump($_POST);
+				//$this->user->register($)
+				$this->form_validation->set_rules('first_name', 'First Name', 'required|trim|alpha');
+				$this->form_validation->set_rules('last_name', 'Last Name', 'required|trim|alpha');
+				$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[blog_users.email]');
+				$this->form_validation->set_rules('gender', 'Gender', 'required|alpha');
+				$this->form_validation->set_rules('password', 'Password', 'required|max_length[16]|min_length[8]');
+				$this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required|matches[password]');
+				$this->form_validation->set_rules('user_id', '', 'required|exact_length[10]');
+				if( $this->form_validation->run() == FALSE):
+					echo validation_errors();
+				else:
+					unset($_POST['confirm_password']);
+					//$_POST['user_id'] = random_string('numeric', 10);
+					//var_dump($_POST);
+					if ( $this->user->register($_POST) ):
+						echo "Registration Successful. You can now login";
+						$data['url'] = site_url()."users/login";
+					else:
+						echo "Unable to register user";
+					endif;
+				endif;
 			endif;
 			
 		}

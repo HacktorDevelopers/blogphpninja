@@ -13,6 +13,7 @@
 				'year'=>date('Y'),
 				'post_cats' => array('title', 'cat', 'author'),
 				'login_credentials' => array('email', 'password'),
+				'genders' => array('Male', 'Female')
 			);
 
 		         //Send the data into the current view

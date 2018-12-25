@@ -20,7 +20,7 @@
 		public function register($user_detail){
 			
 			$query = $this->db->insert_string('blog_users', $user_detail);
-			
+			return $this->db->query($query);
 		}
 		
 	}

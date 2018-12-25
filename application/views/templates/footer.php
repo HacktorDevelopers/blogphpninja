@@ -5,9 +5,9 @@
 	
 	
 	<nav class="nav nav-pills bg-dark nav-justified fixed-bottom">
-		<a class="nav-item nav-link fa fa-home fa-2x" href="<?php echo site_url()?>"></a>
 		<a class="nav-item nav-link fa fa-info fa-2x" href="<?php echo base_url()?>p/about"></a>
-		<a class="nav-item nav-link fa fa-list fa-2x" href="<?php echo base_url()?>p/contact"></a>
+		<a class="nav-item nav-link fa fa-phone fa-2x" href="<?php echo base_url()?>p/contact"></a>
+		<a class="nav-item nav-link fa fa-home fa-2x" href="<?php echo site_url()?>"></a>
 		<a class="nav-item nav-link fa fa-search fa-2x" data-toggle="modal" data-target="#searchModal" href=""></a>
 		<?php if ( ! isset($this->session->user_data) ):?>
 			<a class="nav-item nav-link fa fa-sign-in-alt fa-2x" href="<?php echo site_url()?>users/login"></a>
