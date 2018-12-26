@@ -105,8 +105,8 @@ $(document).ready(function(){
 				user_id : useruser_id
 			} ,
 			success : function(data){
-				alert(data);
-				//toast(data, msg, 'info', 'info', 4000);
+				//alert(data);
+				toast(data, msg, 'info', 'info', 4000);
 			}
 		});
 	});
