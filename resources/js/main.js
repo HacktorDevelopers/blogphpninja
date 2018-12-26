@@ -1,4 +1,6 @@
 $(document).ready(function(){
+	//alert("Hello world");
+	var base_url = "http://localhost:8002/CI/blog/";
 	
 	var links = $("a");
 	var msg = $("#msg");
@@ -17,12 +19,14 @@ $(document).ready(function(){
 	});
 	
 	$("input[name=keyword]").keyup(function(){
+		var url = base_url+"post/searchLikePost";
+		//window.location.assign(url);
 		var userkeyword = $("input[name=keyword]").val();
 		var searchBy = $("select[name=searchBy]").val();
 		//alert(searchBy);
 		if( userkeyword.length != 0){
 		$("#searchResult").load(
-			"http://localhost:8002/post/searchLikePost", 
+			url,
 				{
 					keyword : userkeyword,
 					searchWith : searchBy
@@ -42,7 +46,7 @@ $(document).ready(function(){
 			toast(msgtext, msg, 'info', 'danger', 4000);
 		}else{
 			$.ajax({
-				url: "http://localhost:8002/comment/regUserComment",
+				url: base_url+"comment/regUserComment",
 				method: "POST",
 				data: {
 					comment_value:comment,
@@ -65,7 +69,7 @@ $(document).ready(function(){
 		var useremail = $("input[name=email]").val();
 		var userpass = $("input[name=password]").val();
 		$.ajax({
-			url : "http://localhost:8002/users/loginuser",
+			url : base_url+"users/loginuser",
 			method : 'POST',
 			data : {
 				email : useremail,
@@ -81,6 +85,7 @@ $(document).ready(function(){
 	
 	$("input[name=register]").click(function(e){
 		e.preventDefault();
+		var url = base_url+"users/register";
 		//alert($("input[name=password]").val());
 		var userfirst_name = $("input[name=first_name]").val();
 		var userlast_name = $("input[name=last_name]").val();
@@ -92,7 +97,7 @@ $(document).ready(function(){
 		var useruser_id = $("input[name=user_id]").val();
 		//alert(usergender);
 		$.ajax({
-			url : "http://localhost:8002/users/register",
+			url : url,
 			method : "POST",
 			data : {
 				first_name : userfirst_name,
