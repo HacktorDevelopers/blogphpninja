@@ -42,6 +42,14 @@
 			$this->db->like($searchWith, $keyword, 'both');
 			return $this->db->get();
 			
+		}
+		
+		public function get_post_categories(){
+			
+			$this->db->distinct();
+			$this->db->select('cat');
+			$this->db->from('blog');
+			return $this->db->get()->result();
 			
 		}
 	}

@@ -12,6 +12,8 @@
 			
 			$data['posts'] = $this->post->getPosts();
 			$data['title'] = " Blog post";
+			$data['cats'] = $this->post->get_post_categories();
+			
 			$this->load->view('templates/header', $data);
 			$this->load->view('posts/all', $data);
 			$this->load->view('templates/footer.php', $data);
@@ -23,7 +25,7 @@
 			//NOC means NUMBER OF COMMENT
 			//PCD means POST COMMENT DETAILS
 			
-			$data['thispost'] = $this->post->getPost($id);
+			$data['thispost'] = $this->post->getPost(hex2bin($id));
 			$data['page_header'] = $data['thispost']->row()->title;
 			$data['title'] = $data['thispost']->row()->title;
 			$data['NOC'] = $this->post->getNumberOfComment($data['thispost']->row()->post_id);

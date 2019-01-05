@@ -19,7 +19,7 @@
 					<h6 class="card-subtitle mb-2 text-muted text-right">Learn PHP</h6>
 			</a>
 			<p class="text-left text-<?php echo $user = $this->session->user_data? "success" : "danger"?>">
-				<?php echo $user = $this->session->user_data? "Online" : "Guest Mode"?>
+				<?php echo $user = $this->session->user_data? img('resources/images/profile.png', '','class="logo"') : "Guest Mode"?>
 			</p>
 		</div>
 		<p class="alert fixed-top" style="display:none; margin-top:95px;" id="msg"></p>

@@ -1,5 +1,6 @@
-	<div class="bg-dark text-center fixed-bottom" style="margin-bottom: 50px; margin-top:0px;">
+	<div class="bg-dark text-center" style="margin-bottom: 50px; margin-top:0px;">
 		All Right Reserved &copy; <?php echo $year ?> PHP Ninja
+		<p class="text-muted">Users <?php echo $this->usermodel->nou()?></p>
 	</div>
 	
 	

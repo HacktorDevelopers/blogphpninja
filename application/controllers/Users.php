@@ -10,10 +10,14 @@
 		}
 			
 		public function index(){
-			
-			$this->load->view('templates/header');
-			$this->load->view('users/dashboard');
-			$this->load->view('templates/footer');
+			if ( isset($this->session->user_data)):
+				$this->session->user_data = $this->user->get_this_user_data($this->session->user_data->user_id)->row();
+				$this->load->view('templates/header');
+				$this->load->view('users/dashboard');
+				$this->load->view('templates/footer');
+			else:
+				redirect('users/login');
+			endif;
 			
 		}
 	
@@ -23,7 +27,7 @@
 				$this->load->view('users/login');
 				$this->load->view('templates/footer');
 			else:
-				redirect('users/index');
+				redirect('users');
 			endif;
 		}
 		
@@ -42,7 +46,7 @@
 			}else{
 				$user_detail = array(
 					'email' => $this->input->post('email'),
-					'password' => $this->input->post('password')
+					'password' => bin2hex( $this->input->post('password'))
 				);
 				//var_dump($user_detail);
 				$db_user_detail = $this->user->login($user_detail)->row();
@@ -84,6 +88,7 @@
 					echo validation_errors();
 				else:
 					unset($_POST['confirm_password']);
+					$_POST['password'] = bin2hex($_POST['password']);
 					//$_POST['user_id'] = random_string('numeric', 10);
 					//var_dump($_POST);
 					if ( $this->user->register($_POST) ):
@@ -95,6 +100,30 @@
 				endif;
 			endif;
 			
+		}
+		
+		public function update_profile(){
+			if ( ! isset($this->session->user_data ) ):
+				redirect(site_url());
+			else:
+				if ( ! count($_POST) ):
+					$user_id = $this->session->user_data->user_id;
+					$data['userdata'] = $this->user->get_this_user_data($user_id)->row();
+					
+					$this->load->view('templates/header', $data);
+					$this->load->view('users/edit', $data);
+					$this->load->view('templates/footer', $data);
+					
+				else:
+					//var_dump($_POST);
+					unset($_POST['update']);
+					if ($this->user->update($_POST) ):
+						$this->session->set_flashdata('msg', 'Update Successfull');
+						$this->session->set_flashdata('flag', 'success');
+						redirect(site_url().'users');
+					endif;
+				endif;
+			endif;
 		}
 		
 		public function user_notification(){

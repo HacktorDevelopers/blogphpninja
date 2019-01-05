@@ -58,3 +58,7 @@ $route['post/all'] = 'post/allposts';
 $route['post/(:num)'] = 'post/thispost/$1';
 
 $route['users/notification'] = 'users/user_notification';
+
+
+
+$route['users/edit'] = 'users/update_profile';
