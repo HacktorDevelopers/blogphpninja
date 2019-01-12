@@ -1,7 +1,14 @@
+var base_url = "http://localhost:8002/CI/blog/";
+
+	$(docment).load(function(){
+		$('body .container-fluid').html("<h1>Loading...</h1>");
+	});
+
+
 $(document).ready(function(){
+
 	//alert("Hello world");
-	var base_url = "http://localhost:8002/CI/blog/";
-	
+		
 	var links = $("a");
 	var msg = $("#msg");
 	links.click(function(e){
@@ -65,7 +72,6 @@ $(document).ready(function(){
 	
 	$("input[name=login_btn]").click(function(e){
 		e.preventDefault();
-		//alert($("input[name=password]").val());
 		var useremail = $("input[name=email]").val();
 		var userpass = $("input[name=password]").val();
 		$.ajax({

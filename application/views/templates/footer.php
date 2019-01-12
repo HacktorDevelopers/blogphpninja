@@ -1,6 +1,8 @@
-	<div class="bg-dark text-center" style="margin-bottom: 50px; margin-top:0px;">
-		All Right Reserved &copy; <?php echo $year ?> PHP Ninja
+	<div class="bg-dark container" style="margin-bottom: 50px; margin-top:0px;">
+		<p>Web Stat</p>
 		<p class="text-muted">Users <?php echo $this->usermodel->nou()?></p>
+		<p class="text-muted">Comments <?php echo $this->commentmodel->nocs()?></p>
+		<p class="text-center">All Right Reserved &copy; <?php echo $year ?> PHP Ninja</p>
 	</div>
 	
 	
@@ -23,7 +25,8 @@
 	<?php echo script_tag('resources/js/jquery.js')?>
 	<?php echo script_tag('resources/js/bootstrap/bootstrap.min.js') ?>
 	<?php echo script_tag('resources/js/main.js') ?>
-		</div>
+	
+</div>
 		
 			<!-- Modal -->
 <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">

@@ -1,6 +1,6 @@
 <div class="container">
 
-	<form method="POST" class="form col" action="<?php echo site_url()?>users/login">
+	<form method="POST" class="form col" action="<?php echo site_url()?>users/loginuser">
 		<h3>Login Here</h3>
 		<?php foreach($login_credentials as $lc):?>
 			<div class="form-group">

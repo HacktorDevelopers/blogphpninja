@@ -23,6 +23,14 @@
 			
 		}
 		
+		public function nocs(){
+			
+			$this->db->select('*')
+						->from('comments');
+			return $this->db->count_all_results();
+			
+		}
+		
 	}
 
 

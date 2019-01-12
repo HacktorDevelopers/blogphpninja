@@ -59,6 +59,8 @@ $route['post/(:num)'] = 'post/thispost/$1';
 
 $route['users/notification'] = 'users/user_notification';
 
-
+$route['admin'] = "admin/admin"; 
+$route['admin/view/(:any)'] = "admin/admin/view/$1"; 
 
 $route['users/edit'] = 'users/update_profile';
+

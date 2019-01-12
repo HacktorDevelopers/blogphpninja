@@ -39,6 +39,7 @@
 		}
 		
 		public function update($user_detail){
+			
 			$user_id = $user_detail['user_id'];
 			unset($user_detail['user_id']);
 			//var_dump($user_detail);
